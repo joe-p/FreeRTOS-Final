@@ -16,6 +16,10 @@
 TimerHandle_t xAdcTimer;
 QueueHandle_t  xAdcQueue;
 
+void vAdcTimerCallback( TimerHandle_t xTimer )
+{
+  adc_sample();
+}
 
 void adc_init(void) {
      AD1CON1 = 0x2200; // Configure sample clock source
@@ -43,6 +47,15 @@ void adc_init(void) {
     AD1CON1bits.ADON = 1; // Turn on A/D
 
      xAdcQueue = xQueueCreate(10, sizeof(char*));
+     
+     // Tick rate == 1000Hz
+    xAdcTimer = xTimerCreate("AdcTimer", 1 * configTICK_RATE_HZ, pdTRUE, (void *) 0, vAdcTimerCallback);
+
+    const char * periodic_id = "AdcTimer";
+
+    vTimerSetTimerID(xAdcTimer, (void*) periodic_id);
+  
+    xTimerStart(xAdcTimer, 0);
 
 }
 

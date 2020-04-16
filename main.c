@@ -28,12 +28,6 @@
 extern TimerHandle_t xAdcTimer;
 extern QueueHandle_t  xAdcQueue;
 
-
-
-void vAdcTimerCallback( TimerHandle_t xTimer )
-{
-  adc_sample();
-}
 /*-----------------------------------------------------------*/
 
 int main( void )
@@ -42,14 +36,7 @@ int main( void )
   adc_init();
   dac_init();
   
-  // Tick rate == 1000Hz
-  xAdcTimer = xTimerCreate("AdcTimer", 1 * configTICK_RATE_HZ, pdTRUE, (void *) 0, vAdcTimerCallback);
-
-  const char * periodic_id = "AdcTimer";
-
-  vTimerSetTimerID(xAdcTimer, (void*) periodic_id);
   
-  xTimerStart(xAdcTimer, 0);
 
   /* Start the scheduler to start the tasks executing. */
   vTaskStartScheduler();	
