@@ -46,14 +46,14 @@ void adc_init(void) {
     IEC0bits.AD1IE = 1; // Enable A/D conversion interrupt
     AD1CON1bits.ADON = 1; // Turn on A/D
 
-     xAdcQueue = xQueueCreate(10, sizeof(char*));
+     xAdcQueue = xQueueCreate(10, sizeof(float));
      
      // Tick rate == 1000Hz
     xAdcTimer = xTimerCreate("AdcTimer", 1 * configTICK_RATE_HZ, pdTRUE, (void *) 0, vAdcTimerCallback);
 
-    const char * periodic_id = "AdcTimer";
+    //const char * periodic_id = "AdcTimer";
 
-    vTimerSetTimerID(xAdcTimer, (void*) periodic_id);
+   // vTimerSetTimerID(xAdcTimer, (void*) periodic_id);
   
     xTimerStart(xAdcTimer, 0);
 
@@ -92,7 +92,5 @@ void __attribute__ ((__interrupt__)) _ADC1Interrupt(void)
     float amps = adc_voltage / 250.0;
     adc_milliamps = amps * 1000.0;
     
-    if (xQueueSend(xAdcQueue, (void *) &adc_milliamps, ( TickType_t ) 0) != pdTRUE ) {
-        int breakvar = 1;
-    }
+    xQueueSend(xAdcQueue, (void *) &adc_milliamps, ( TickType_t ) 0);
 }

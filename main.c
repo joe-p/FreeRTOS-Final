@@ -36,8 +36,6 @@ int main( void )
   adc_init();
   dac_init();
   
-  
-
   /* Start the scheduler to start the tasks executing. */
   vTaskStartScheduler();	
 

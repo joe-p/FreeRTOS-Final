@@ -68,7 +68,6 @@ void vLogicTask( void *pvParameters )
       if (xQueueReceive(xAdcQueue, &( rxVal ), (TickType_t)100))
       {
           output_logic(rxVal);
-      
       }
     }
   }
