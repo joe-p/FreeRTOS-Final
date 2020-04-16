@@ -14,7 +14,11 @@
 #include "queue.h"
 
 TimerHandle_t xAdcTimer;
+
 QueueHandle_t  xAdcQueue;
+
+// 1ms delay after sampling has begun
+ const TickType_t xSampleDelay = 1 / portTICK_PERIOD_MS;
 
 void vAdcTimerCallback( TimerHandle_t xTimer )
 {
@@ -49,16 +53,14 @@ void adc_init(void) {
      xAdcQueue = xQueueCreate(10, sizeof(float));
      
      // Tick rate == 1000Hz
-    xAdcTimer = xTimerCreate("AdcTimer", 1 * configTICK_RATE_HZ, pdTRUE, (void *) 0, vAdcTimerCallback);
-  
+    xAdcTimer = xTimerCreate("AdcTimer", 10 / portTICK_PERIOD_MS, pdTRUE, (void *) 0, vAdcTimerCallback);
     xTimerStart(xAdcTimer, 0);
 
 }
 
 void adc_sample(void){
  AD1CON1bits.SAMP = 1; // Start sampling the input
- __delay32(1500000); // delay some amount of time
- // before starting conversion.
+ vTaskDelay(xSampleDelay);
  AD1CON1bits.SAMP = 0; // End A/D sampling and start conversion
 }
 

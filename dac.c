@@ -38,7 +38,7 @@ void dac_init(){
 }
 
 void output_to_dac(float output_voltage){  
-    unsigned int output_bits;
+    unsigned short int output_bits;
     
     // Assuming 12-bit DAC ranging from 0 to 4095
     output_bits = output_voltage * 13650 / 11;

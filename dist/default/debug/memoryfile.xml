@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project>
-  <executable name="dist/default/production/final_freertos.X.production.elf">
+  <executable name="dist/default/debug/final_freertos.X.debug.elf">
     <memory name="data">
       <units>bytes</units>
       <length>32768</length>
@@ -11,8 +11,8 @@
     <memory name="program">
       <units>bytes</units>
       <length>1056000</length>
-      <used>17358</used>
-      <free>1038642</free>
+      <used>17373</used>
+      <free>1038627</free>
     </memory>
   </executable>
 </project>
