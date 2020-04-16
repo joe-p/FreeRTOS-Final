@@ -50,10 +50,6 @@ void adc_init(void) {
      
      // Tick rate == 1000Hz
     xAdcTimer = xTimerCreate("AdcTimer", 1 * configTICK_RATE_HZ, pdTRUE, (void *) 0, vAdcTimerCallback);
-
-    //const char * periodic_id = "AdcTimer";
-
-   // vTimerSetTimerID(xAdcTimer, (void*) periodic_id);
   
     xTimerStart(xAdcTimer, 0);
 
