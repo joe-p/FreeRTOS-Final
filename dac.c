@@ -22,6 +22,13 @@ extern QueueHandle_t  xAdcQueue;
 void dac_init(){
     TRISA = 0b00000000;
    
+   xTaskCreate(	vLogicTask,		/* Pointer to the function that implements the task. */
+      "Receiver",	/* Text name for the task.  This is to facilitate debugging only. */
+      1000,		/* Stack depth - most small microcontrollers will use much less stack than this. */
+      NULL,		/* We are not using the task parameter. */
+      2,			/* This task will run at priority 2. */
+      NULL );		/* We are not using the task handle. */
+   
 }
 
 void output_to_dac(){  
@@ -45,5 +52,25 @@ void output_logic(float input_milliamps){
     
     output_voltage = 250 * output_milliamps / 1000;
     
+}
+
+void vLogicTask( void *pvParameters )
+{
+  float rxVal;
+  
+  /* As per most tasks, this task is implemented in an infinite loop. */
+  for( ;; )
+  {
+    if (xAdcQueue != 0)
+    {
+      // Receive a message on the created queue.  Block for 100 ticks if a
+      // message is not immediately available.
+      if (xQueueReceive(xAdcQueue, &( rxVal ), (TickType_t)100))
+      {
+          output_logic(rxVal);
+      
+      }
+    }
+  }
 }
 
