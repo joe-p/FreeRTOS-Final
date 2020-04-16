@@ -13,11 +13,6 @@
 #include "task.h"
 #include "queue.h"
 
-
-float output_voltage; 
-extern float adc_voltage;
-extern float adc_milliamps;
-
 extern QueueHandle_t  xAdcQueue;
 QueueHandle_t xOutputQueue;
 
