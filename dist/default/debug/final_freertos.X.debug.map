@@ -227,7 +227,7 @@ section                    address   length (PC units)   length (bytes) (dec)
 .text.vTaskPlaceOnUnorderedEventList    0x2a42                0x24            0x36  (54)
 .text.xTaskGetSchedulerState    0x2a66                0x24            0x36  (54)
 .text.xTimerCreateTimerTask    0x2a8a                0x24            0x36  (54)
-.text.vReceiver             0x2aae                0x24            0x36  (54)
+.text.vLogicTask            0x2aae                0x24            0x36  (54)
 .text.prvResetNextTaskUnblockTime    0x2ad2                0x22            0x33  (51)
 .text.adc_init              0x2af4                0x22            0x33  (51)
 .text.prvIsQueueEmpty       0x2b16                0x20            0x30  (48)
@@ -430,19 +430,19 @@ External Symbols in Program Memory (by address):
 
                   0x000100                  __resetPRI
                   0x00013c                  __psv_init
-                  0x000152                  __data_init_da
                   0x000152                  __data_init
+                  0x000152                  __data_init_da
                   0x000214                  __T1Interrupt
                   0x00024c                  __ADC1Interrupt
                   0x0002f6                  __DefaultInterrupt
                   0x0002fc                  ___subsf3
                   0x0002fe                  ___addsf3
                   0x0003b8                  ___divsf3
-                  0x00043c                  ___eqsf2
                   0x00043c                  ___ltsf2
                   0x00043c                  ___lesf2
-                  0x000440                  ___gtsf2
+                  0x00043c                  ___eqsf2
                   0x000440                  ___gesf2
+                  0x000440                  ___gtsf2
                   0x000444                  ___fixsfsi
                   0x000486                  ___fixunssfsi
                   0x0004bc                  ___floatsisf
@@ -461,9 +461,9 @@ External Symbols in Program Memory (by address):
                   0x0006c4                  _memset
                   0x0006d2                  _srand
                   0x0006e0                  _rand
-                  0x000706                  ___mulp32peds3
                   0x000706                  ___mulp32eds3
                   0x000706                  ___mulsi3
+                  0x000706                  ___mulp32peds3
                   0x0008a4                  _xTaskGenericNotifyFromISR
                   0x000aae                  _xTaskGenericNotify
                   0x000b96                  _xQueueGenericSend
@@ -532,7 +532,7 @@ External Symbols in Program Memory (by address):
                   0x002a42                  _vTaskPlaceOnUnorderedEventList
                   0x002a66                  _xTaskGetSchedulerState
                   0x002a8a                  _xTimerCreateTimerTask
-                  0x002aae                  _vReceiver
+                  0x002aae                  _vLogicTask
                   0x002ad2                  _prvResetNextTaskUnblockTime
                   0x002af4                  _adc_init
                   0x002b36                  _xQueueIsQueueEmptyFromISR
@@ -657,6 +657,7 @@ External Symbols in Program Memory (by name):
                   0x002d9e                  _vListInitialiseItem
                   0x001f2a                  _vListInsert
                   0x0025fa                  _vListInsertEnd
+                  0x002aae                  _vLogicTask
                   0x002e08                  _vPortEndScheduler
                   0x002be6                  _vPortEnterCritical
                   0x002b92                  _vPortExitCritical
@@ -665,7 +666,6 @@ External Symbols in Program Memory (by name):
                   0x002330                  _vPortYield
                   0x002d3e                  _vQueueDelete
                   0x0024ae                  _vQueueWaitForMessageRestricted
-                  0x002aae                  _vReceiver
                   0x0028de                  _vTaskDelay
                   0x001978                  _vTaskDelayUntil
                   0x002c34                  _vTaskEndScheduler
@@ -917,7 +917,7 @@ __FDEVOPT1
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x6aa0
+.debug_info       0x000000       0x6aa1
  *(.debug_info)
  .debug_info      0x000000        0xc7d build/default/debug/Source/portable/MPLAB/PIC24_dsPIC/port.o
  .debug_info      0x000c7d         0xab build/default/debug/Source/portable/MPLAB/PIC24_dsPIC/portasm_PIC24.o
@@ -926,10 +926,10 @@ __FDEVOPT1
  .debug_info      0x001a56       0x13c5 build/default/debug/Source/queue.o
  .debug_info      0x002e1b       0x1b4c build/default/debug/Source/tasks.o
  .debug_info      0x004967        0xe96 build/default/debug/Source/timers.o
- .debug_info      0x0057fd        0x4c7 build/default/debug/main.o
- .debug_info      0x005cc4        0x2ac build/default/debug/Source/portable/MemMang/heap_1.o
- .debug_info      0x005f70        0x8d5 build/default/debug/adc.o
- .debug_info      0x006845        0x25b build/default/debug/dac.o
+ .debug_info      0x0057fd        0x4c8 build/default/debug/main.o
+ .debug_info      0x005cc5        0x2ac build/default/debug/Source/portable/MemMang/heap_1.o
+ .debug_info      0x005f71        0x8d5 build/default/debug/adc.o
+ .debug_info      0x006846        0x25b build/default/debug/dac.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0xe6e
@@ -992,7 +992,7 @@ __FDEVOPT1
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000        0xe42
+                  0x000000        0xe43
  *(.debug_pubnames)
  .debug_pubnames
                   0x000000         0xd6 build/default/debug/Source/portable/MPLAB/PIC24_dsPIC/port.o
@@ -1007,13 +1007,13 @@ __FDEVOPT1
  .debug_pubnames
                   0x000b47        0x12c build/default/debug/Source/timers.o
  .debug_pubnames
-                  0x000c73         0x7a build/default/debug/main.o
+                  0x000c73         0x7b build/default/debug/main.o
  .debug_pubnames
-                  0x000ced         0x64 build/default/debug/Source/portable/MemMang/heap_1.o
+                  0x000cee         0x64 build/default/debug/Source/portable/MemMang/heap_1.o
  .debug_pubnames
-                  0x000d51         0x9c build/default/debug/adc.o
+                  0x000d52         0x9c build/default/debug/adc.o
  .debug_pubnames
-                  0x000ded         0x55 build/default/debug/dac.o
+                  0x000dee         0x55 build/default/debug/dac.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -4041,11 +4041,11 @@ __c30_signature
                   0x002a8a         0x24 build/default/debug/Source/timers.o
                   0x002a8a                  _xTimerCreateTimerTask
 
-.text.vReceiver
+.text.vLogicTask
                   0x002aae         0x24
- .text.vReceiver
+ .text.vLogicTask
                   0x002aae         0x24 build/default/debug/main.o
-                  0x002aae                  _vReceiver
+                  0x002aae                  _vLogicTask
 
 .text.prvResetNextTaskUnblockTime
                   0x002ad2         0x22

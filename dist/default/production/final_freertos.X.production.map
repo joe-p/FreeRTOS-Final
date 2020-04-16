@@ -224,7 +224,7 @@ section                    address   length (PC units)   length (bytes) (dec)
 .text.vTaskPlaceOnUnorderedEventList    0x2a38                0x24            0x36  (54)
 .text.xTaskGetSchedulerState    0x2a5c                0x24            0x36  (54)
 .text.xTimerCreateTimerTask    0x2a80                0x24            0x36  (54)
-.text.vReceiver             0x2aa4                0x24            0x36  (54)
+.text.vLogicTask            0x2aa4                0x24            0x36  (54)
 .text.prvResetNextTaskUnblockTime    0x2ac8                0x22            0x33  (51)
 .text.adc_init              0x2aea                0x22            0x33  (51)
 .text.prvIsQueueEmpty       0x2b0c                0x20            0x30  (48)
@@ -380,8 +380,8 @@ External Symbols in Program Memory (by address):
                   0x0002fe                  ___addsf3
                   0x0003b8                  ___divsf3
                   0x00043c                  ___ltsf2
-                  0x00043c                  ___lesf2
                   0x00043c                  ___eqsf2
+                  0x00043c                  ___lesf2
                   0x000440                  ___gtsf2
                   0x000440                  ___gesf2
                   0x000444                  ___fixsfsi
@@ -465,7 +465,7 @@ External Symbols in Program Memory (by address):
                   0x002a38                  _vTaskPlaceOnUnorderedEventList
                   0x002a5c                  _xTaskGetSchedulerState
                   0x002a80                  _xTimerCreateTimerTask
-                  0x002aa4                  _vReceiver
+                  0x002aa4                  _vLogicTask
                   0x002aea                  _adc_init
                   0x002b2c                  _xQueueIsQueueEmptyFromISR
                   0x002b4c                  _uxQueueSpacesAvailable
@@ -577,6 +577,7 @@ External Symbols in Program Memory (by name):
                   0x002d94                  _vListInitialiseItem
                   0x001f20                  _vListInsert
                   0x0025f0                  _vListInsertEnd
+                  0x002aa4                  _vLogicTask
                   0x002dfe                  _vPortEndScheduler
                   0x002bdc                  _vPortEnterCritical
                   0x002b88                  _vPortExitCritical
@@ -585,7 +586,6 @@ External Symbols in Program Memory (by name):
                   0x002326                  _vPortYield
                   0x002d34                  _vQueueDelete
                   0x0024a4                  _vQueueWaitForMessageRestricted
-                  0x002aa4                  _vReceiver
                   0x0028d4                  _vTaskDelay
                   0x00196e                  _vTaskDelayUntil
                   0x002c2a                  _vTaskEndScheduler
@@ -835,7 +835,7 @@ __FDEVOPT1
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x6aaf
+.debug_info       0x000000       0x6ab0
  *(.debug_info)
  .debug_info      0x000000        0xc7d build/default/production/Source/portable/MPLAB/PIC24_dsPIC/port.o
  .debug_info      0x000c7d         0xab build/default/production/Source/portable/MPLAB/PIC24_dsPIC/portasm_PIC24.o
@@ -844,10 +844,10 @@ __FDEVOPT1
  .debug_info      0x001a80       0x13c5 build/default/production/Source/queue.o
  .debug_info      0x002e45       0x1b31 build/default/production/Source/tasks.o
  .debug_info      0x004976        0xe96 build/default/production/Source/timers.o
- .debug_info      0x00580c        0x4c7 build/default/production/main.o
- .debug_info      0x005cd3        0x2ac build/default/production/Source/portable/MemMang/heap_1.o
- .debug_info      0x005f7f        0x8d5 build/default/production/adc.o
- .debug_info      0x006854        0x25b build/default/production/dac.o
+ .debug_info      0x00580c        0x4c8 build/default/production/main.o
+ .debug_info      0x005cd4        0x2ac build/default/production/Source/portable/MemMang/heap_1.o
+ .debug_info      0x005f80        0x8d5 build/default/production/adc.o
+ .debug_info      0x006855        0x25b build/default/production/dac.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0xed7
@@ -910,7 +910,7 @@ __FDEVOPT1
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000        0xa79
+                  0x000000        0xa7a
  *(.debug_pubnames)
  .debug_pubnames
                   0x000000         0xd6 build/default/production/Source/portable/MPLAB/PIC24_dsPIC/port.o
@@ -925,13 +925,13 @@ __FDEVOPT1
  .debug_pubnames
                   0x00077e        0x12c build/default/production/Source/timers.o
  .debug_pubnames
-                  0x0008aa         0x7a build/default/production/main.o
+                  0x0008aa         0x7b build/default/production/main.o
  .debug_pubnames
-                  0x000924         0x64 build/default/production/Source/portable/MemMang/heap_1.o
+                  0x000925         0x64 build/default/production/Source/portable/MemMang/heap_1.o
  .debug_pubnames
-                  0x000988         0x9c build/default/production/adc.o
+                  0x000989         0x9c build/default/production/adc.o
  .debug_pubnames
-                  0x000a24         0x55 build/default/production/dac.o
+                  0x000a25         0x55 build/default/production/dac.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -3923,11 +3923,11 @@ __c30_signature
                   0x002a80         0x24 build/default/production/Source/timers.o
                   0x002a80                  _xTimerCreateTimerTask
 
-.text.vReceiver
+.text.vLogicTask
                   0x002aa4         0x24
- .text.vReceiver
+ .text.vLogicTask
                   0x002aa4         0x24 build/default/production/main.o
-                  0x002aa4                  _vReceiver
+                  0x002aa4                  _vLogicTask
 
 .text.prvResetNextTaskUnblockTime
                   0x002ac8         0x22

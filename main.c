@@ -28,7 +28,7 @@
 extern TimerHandle_t xAdcTimer;
 extern QueueHandle_t  xAdcQueue;
 
-void vReceiver( void *pvParameters );
+void vLogicTask( void *pvParameters );
 
 
 void vAdcTimerCallback( TimerHandle_t xTimer )
@@ -53,7 +53,7 @@ int main( void )
   xTimerStart(xAdcTimer, 0);
 
 
-   xTaskCreate(	vReceiver,		/* Pointer to the function that implements the task. */
+   xTaskCreate(	vLogicTask,		/* Pointer to the function that implements the task. */
       "Receiver",	/* Text name for the task.  This is to facilitate debugging only. */
       1000,		/* Stack depth - most small microcontrollers will use much less stack than this. */
       NULL,		/* We are not using the task parameter. */
@@ -90,7 +90,7 @@ void vApplicationIdleHook( void )
 	vCoRoutineSchedule();
 }
 
-void vReceiver( void *pvParameters )
+void vLogicTask( void *pvParameters )
 {
   float rxVal;
   
