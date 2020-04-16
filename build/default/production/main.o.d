@@ -9,9 +9,4 @@ Source/include/portable.h  \
  Source/include/mpu_wrappers.h  \
 Source/include/task.h  \
  Source/include/list.h  \
-Source/include/timers.h  \
-Source/include/task.h  \
- Source/include/queue.h  \
-adc.h  \
-dac.h  \
 pic_config.h 

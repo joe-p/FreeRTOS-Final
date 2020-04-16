@@ -5,7 +5,7 @@
  * Created on April 7, 2020, 9:47 AM
  */
 #include "adc.h"
-#include <stdlib.h>
+//#include <stdlib.h>
 
 /* FreeRTOS.org includes. */
 #include "FreeRTOS.h"

@@ -1,5 +1,6 @@
 build/default/production/dac.o:  \
 dac.c  \
+dac.h  \
 Source/include/FreeRTOS.h  \
  FreeRTOSConfig.h  \
 Source/include/projdefs.h  \
@@ -9,7 +10,5 @@ Source/include/portable.h  \
  Source/include/mpu_wrappers.h  \
 Source/include/task.h  \
  Source/include/list.h  \
-Source/include/timers.h  \
-Source/include/task.h  \
- Source/include/queue.h  \
-dac.h 
+Source/include/queue.h  \
+Source/include/task.h 

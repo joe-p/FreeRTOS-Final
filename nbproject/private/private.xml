@@ -6,6 +6,12 @@
         <group name="Masters19024">
             <file>file:/C:/E/Dev/FreeRTOS/WorkingCopy/FreeRTOS/Demo/PIC24_MPLAB/main.c</file>
         </group>
-        <group/>
+        <group>
+            <file>file:/D:/_corona_school/os/mplab/final_freertos.X/adc.c</file>
+            <file>file:/D:/_corona_school/os/mplab/final_freertos.X/main.c</file>
+            <file>file:/D:/_corona_school/os/mplab/final_freertos.X/dac.c</file>
+            <file>file:/D:/_corona_school/os/mplab/final_freertos.X/adc.h</file>
+            <file>file:/D:/_corona_school/os/mplab/final_freertos.X/dac.h</file>
+        </group>
     </open-files>
 </project-private>

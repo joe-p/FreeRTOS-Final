@@ -4,14 +4,15 @@
  *
  * Created on April 15, 2020, 10:39 PM
  */
-
+#include "dac.h"
+#include "xc.h"
+#include <float.h>
 
 /* FreeRTOS.org includes. */
 #include "FreeRTOS.h"
 #include "task.h"
-#include "timers.h"   
 #include "queue.h"
-#include "dac.h"
+
 
 float output_voltage; 
 extern float adc_voltage;

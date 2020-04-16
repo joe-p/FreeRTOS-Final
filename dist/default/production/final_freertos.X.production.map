@@ -841,7 +841,7 @@ __FDEVOPT1
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x6aa3
+.debug_info       0x000000       0x6b08
  *(.debug_info)
  .debug_info      0x000000        0xc7d build/default/production/Source/portable/MPLAB/PIC24_dsPIC/port.o
  .debug_info      0x000c7d         0xab build/default/production/Source/portable/MPLAB/PIC24_dsPIC/portasm_PIC24.o
@@ -850,13 +850,13 @@ __FDEVOPT1
  .debug_info      0x001a80       0x13c5 build/default/production/Source/queue.o
  .debug_info      0x002e45       0x1b31 build/default/production/Source/tasks.o
  .debug_info      0x004976        0xe96 build/default/production/Source/timers.o
- .debug_info      0x00580c        0x34f build/default/production/main.o
- .debug_info      0x005b5b        0x2ac build/default/production/Source/portable/MemMang/heap_1.o
- .debug_info      0x005e07        0x8f6 build/default/production/adc.o
- .debug_info      0x0066fd        0x3a6 build/default/production/dac.o
+ .debug_info      0x00580c        0x380 build/default/production/main.o
+ .debug_info      0x005b8c        0x2ac build/default/production/Source/portable/MemMang/heap_1.o
+ .debug_info      0x005e38        0x92a build/default/production/adc.o
+ .debug_info      0x006762        0x3a6 build/default/production/dac.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0xee8
+.debug_abbrev     0x000000        0xf1c
  *(.debug_abbrev)
  .debug_abbrev    0x000000        0x1e3 build/default/production/Source/portable/MPLAB/PIC24_dsPIC/port.o
  .debug_abbrev    0x0001e3         0x14 build/default/production/Source/portable/MPLAB/PIC24_dsPIC/portasm_PIC24.o
@@ -865,10 +865,10 @@ __FDEVOPT1
  .debug_abbrev    0x0004df        0x1d2 build/default/production/Source/queue.o
  .debug_abbrev    0x0006b1        0x248 build/default/production/Source/tasks.o
  .debug_abbrev    0x0008f9        0x1a3 build/default/production/Source/timers.o
- .debug_abbrev    0x000a9c         0xf7 build/default/production/main.o
- .debug_abbrev    0x000b93         0xc8 build/default/production/Source/portable/MemMang/heap_1.o
- .debug_abbrev    0x000c5b        0x186 build/default/production/adc.o
- .debug_abbrev    0x000de1        0x107 build/default/production/dac.o
+ .debug_abbrev    0x000a9c        0x10c build/default/production/main.o
+ .debug_abbrev    0x000ba8         0xc8 build/default/production/Source/portable/MemMang/heap_1.o
+ .debug_abbrev    0x000c70        0x1a5 build/default/production/adc.o
+ .debug_abbrev    0x000e15        0x107 build/default/production/dac.o
 
 .debug_line       0x000000       0x1ade
  *(.debug_line)

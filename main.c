@@ -17,16 +17,10 @@
 /* FreeRTOS.org includes. */
 #include "FreeRTOS.h"
 #include "task.h"
-#include "timers.h"   
-#include "queue.h"
 
 // Project includes
-#include "adc.h"
-#include "dac.h"
 #include "pic_config.h"
 
-extern TimerHandle_t xAdcTimer;
-extern QueueHandle_t  xAdcQueue;
 
 /*-----------------------------------------------------------*/
 
