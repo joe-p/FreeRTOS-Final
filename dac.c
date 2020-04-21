@@ -1,9 +1,3 @@
-/*
- * File:   dac.c
- * Author: joe
- *
- * Created on April 15, 2020, 10:39 PM
- */
 #include "dac.h"
 #include "xc.h"
 #include <float.h>
@@ -16,6 +10,8 @@
 extern QueueHandle_t  xAdcQueue;
 QueueHandle_t xOutputQueue;
 
+// Initializes TRISA register to all zeros to designate PORTA is an output and 
+// creates the necessary tasks and queue. 
 void dac_init(){
     TRISA = 0b00000000;
    
@@ -37,16 +33,14 @@ void dac_init(){
    
 }
 
+// Converts decimal voltage to digital value for output
 void output_to_dac(float output_voltage){  
-    unsigned short int output_bits;
-    
-    // Assuming 12-bit DAC ranging from 0 to 4095
-    output_bits = output_voltage * 13650 / 11;
+    unsigned short int output_bits = (output_voltage * 4095 / 5) + 0.5;
     
     PORTA = output_bits;
-    
 }
 
+// Performs necessary math to convert the input to the proper output voltage
 float output_logic(float input_milliamps){
     float output_milliamps;
     
@@ -62,6 +56,8 @@ float output_logic(float input_milliamps){
     
 }
 
+// Receives values from xAdcQueue, sends them to output_logic(), the sends the
+// result to  xOutputQueue
 void vLogicTask( void *pvParameters )
 {
   float rxVal;
@@ -84,6 +80,7 @@ void vLogicTask( void *pvParameters )
   }
 }
 
+// Receives output values from xOutputQueue and sends them to output_to_dac() 
 void vOutputTask( void *pvParameters )
 {
   float rxVal;

@@ -1,11 +1,4 @@
-/*
- * File:   adc.c
- * Author: joe
- *
- * Created on April 7, 2020, 9:47 AM
- */
 #include "adc.h"
-//#include <stdlib.h>
 
 /* FreeRTOS.org includes. */
 #include "FreeRTOS.h"
@@ -13,18 +6,29 @@
 #include "timers.h"   
 #include "queue.h"
 
+// xAdcTimer is the periodic timer that starts sampling every 10ms
 TimerHandle_t xAdcTimer;
 
+// xAdcQueue is the queue that the calculated milliamps from the ADC voltage
+// are sent to
 QueueHandle_t  xAdcQueue;
 
-// 1ms delay after sampling has begun
- const TickType_t xSampleDelay = 1 / portTICK_PERIOD_MS;
-
+// 1ms delay used between the start of sampling and the start of conversion
+const TickType_t xSampleDelay = 1 / portTICK_PERIOD_MS;
+ 
+ // input_counter and inputs and used to simulate input sampled by the ADC
+int input_counter = 0;
+const float inputs[11] = { 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5 };
+ 
+// Callback function for the 10ms periodic timer that starts ADC sampling and conversion
 void vAdcTimerCallback( TimerHandle_t xTimer )
 {
-  adc_sample();
+    AD1CON1bits.SAMP = 1; // Start sampling the input
+    vTaskDelay(xSampleDelay); // Delay 1ms
+    AD1CON1bits.SAMP = 0; // End A/D sampling and start conversion}
 }
 
+// Initializes registers to the proper values and sets up the timer and queue
 void adc_init(void) {
      AD1CON1 = 0x2200; // Configure sample clock source
     // and conversion trigger mode.
@@ -58,37 +62,30 @@ void adc_init(void) {
 
 }
 
-void adc_sample(void){
- AD1CON1bits.SAMP = 1; // Start sampling the input
- vTaskDelay(xSampleDelay);
- AD1CON1bits.SAMP = 0; // End A/D sampling and start conversion
-}
-
-int input_counter = 0;
-float inputs[7] = { 0, 0.5, 1, 1.5, 2, 2.5, 3 };
-
-float adc_milliamps;
-float adc_voltage; 
-
+// Interrupt when AD1IF is set
+// Calculates the input current from the ADC voltage. 
 void __attribute__ ((__interrupt__)) _ADC1Interrupt(void)
 {
     IFS0bits.AD1IF = 0;
-        
-    float input_voltage;
     
-    if (input_counter > 7){
-        input_voltage = inputs[ rand() % 7];
+    // The simulated_adc_result variable is what the ADC buffer register would
+    // be if the ADC was actually sampling from a real input voltage.
+    unsigned short int simulated_adc_result;
+
+    // For the first 11 samples, every sample is incremented by .5v
+    // sequentially. After that, the "sampled" voltage is a random voltage
+    // between 0 and 5V.
+    if (input_counter > 10){
+        simulated_adc_result = rand() % 4095;
     }
     else {
-        input_voltage = inputs[input_counter++];
+         simulated_adc_result = (inputs[input_counter++] * 4095 / 5) + 0.5;
     }
-    
-    int simulated_input = input_voltage * 13650.0/ 11.0;
-    
-    adc_voltage = simulated_input / (4095.0 / 3.3);
+ 
+    float adc_voltage = (float) simulated_adc_result * 5.0 / 4095.0;
     
     float amps = adc_voltage / 250.0;
-    adc_milliamps = amps * 1000.0;
+    float adc_milliamps = amps * 1000.0;
     
     xQueueSend(xAdcQueue, (void *) &adc_milliamps, ( TickType_t ) 0);
 }

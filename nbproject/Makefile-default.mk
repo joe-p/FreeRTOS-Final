@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=Source/portable/MPLAB/PIC24_dsPIC/port.c Source/portable/MPLAB/PIC24_dsPIC/portasm_PIC24.S Source/croutine.c Source/list.c Source/queue.c Source/tasks.c Source/timers.c main.c Source/portable/MemMang/heap_1.c adc.c dac.c
+SOURCEFILES_QUOTED_IF_SPACED=Source/portable/MPLAB/PIC24_dsPIC/port.c Source/portable/MPLAB/PIC24_dsPIC/portasm_PIC24.S Source/portable/MemMang/heap_1.c Source/croutine.c Source/list.c Source/queue.c Source/tasks.c Source/timers.c main.c adc.c dac.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Source/portable/MPLAB/PIC24_dsPIC/port.o ${OBJECTDIR}/Source/portable/MPLAB/PIC24_dsPIC/portasm_PIC24.o ${OBJECTDIR}/Source/croutine.o ${OBJECTDIR}/Source/list.o ${OBJECTDIR}/Source/queue.o ${OBJECTDIR}/Source/tasks.o ${OBJECTDIR}/Source/timers.o ${OBJECTDIR}/main.o ${OBJECTDIR}/Source/portable/MemMang/heap_1.o ${OBJECTDIR}/adc.o ${OBJECTDIR}/dac.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/Source/portable/MPLAB/PIC24_dsPIC/port.o.d ${OBJECTDIR}/Source/portable/MPLAB/PIC24_dsPIC/portasm_PIC24.o.d ${OBJECTDIR}/Source/croutine.o.d ${OBJECTDIR}/Source/list.o.d ${OBJECTDIR}/Source/queue.o.d ${OBJECTDIR}/Source/tasks.o.d ${OBJECTDIR}/Source/timers.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/Source/portable/MemMang/heap_1.o.d ${OBJECTDIR}/adc.o.d ${OBJECTDIR}/dac.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Source/portable/MPLAB/PIC24_dsPIC/port.o ${OBJECTDIR}/Source/portable/MPLAB/PIC24_dsPIC/portasm_PIC24.o ${OBJECTDIR}/Source/portable/MemMang/heap_1.o ${OBJECTDIR}/Source/croutine.o ${OBJECTDIR}/Source/list.o ${OBJECTDIR}/Source/queue.o ${OBJECTDIR}/Source/tasks.o ${OBJECTDIR}/Source/timers.o ${OBJECTDIR}/main.o ${OBJECTDIR}/adc.o ${OBJECTDIR}/dac.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/Source/portable/MPLAB/PIC24_dsPIC/port.o.d ${OBJECTDIR}/Source/portable/MPLAB/PIC24_dsPIC/portasm_PIC24.o.d ${OBJECTDIR}/Source/portable/MemMang/heap_1.o.d ${OBJECTDIR}/Source/croutine.o.d ${OBJECTDIR}/Source/list.o.d ${OBJECTDIR}/Source/queue.o.d ${OBJECTDIR}/Source/tasks.o.d ${OBJECTDIR}/Source/timers.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/adc.o.d ${OBJECTDIR}/dac.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/Source/portable/MPLAB/PIC24_dsPIC/port.o ${OBJECTDIR}/Source/portable/MPLAB/PIC24_dsPIC/portasm_PIC24.o ${OBJECTDIR}/Source/croutine.o ${OBJECTDIR}/Source/list.o ${OBJECTDIR}/Source/queue.o ${OBJECTDIR}/Source/tasks.o ${OBJECTDIR}/Source/timers.o ${OBJECTDIR}/main.o ${OBJECTDIR}/Source/portable/MemMang/heap_1.o ${OBJECTDIR}/adc.o ${OBJECTDIR}/dac.o
+OBJECTFILES=${OBJECTDIR}/Source/portable/MPLAB/PIC24_dsPIC/port.o ${OBJECTDIR}/Source/portable/MPLAB/PIC24_dsPIC/portasm_PIC24.o ${OBJECTDIR}/Source/portable/MemMang/heap_1.o ${OBJECTDIR}/Source/croutine.o ${OBJECTDIR}/Source/list.o ${OBJECTDIR}/Source/queue.o ${OBJECTDIR}/Source/tasks.o ${OBJECTDIR}/Source/timers.o ${OBJECTDIR}/main.o ${OBJECTDIR}/adc.o ${OBJECTDIR}/dac.o
 
 # Source Files
-SOURCEFILES=Source/portable/MPLAB/PIC24_dsPIC/port.c Source/portable/MPLAB/PIC24_dsPIC/portasm_PIC24.S Source/croutine.c Source/list.c Source/queue.c Source/tasks.c Source/timers.c main.c Source/portable/MemMang/heap_1.c adc.c dac.c
+SOURCEFILES=Source/portable/MPLAB/PIC24_dsPIC/port.c Source/portable/MPLAB/PIC24_dsPIC/portasm_PIC24.S Source/portable/MemMang/heap_1.c Source/croutine.c Source/list.c Source/queue.c Source/tasks.c Source/timers.c main.c adc.c dac.c
 
 
 
@@ -101,6 +101,13 @@ ${OBJECTDIR}/Source/portable/MPLAB/PIC24_dsPIC/port.o: Source/portable/MPLAB/PIC
 	@${RM} ${OBJECTDIR}/Source/portable/MPLAB/PIC24_dsPIC/port.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  Source/portable/MPLAB/PIC24_dsPIC/port.c  -o ${OBJECTDIR}/Source/portable/MPLAB/PIC24_dsPIC/port.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Source/portable/MPLAB/PIC24_dsPIC/port.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -ffunction-sections -fdata-sections -O0 -I"Source/include" -I"Source/portable/MPLAB/PIC24_dsPIC" -I"Common/include" -msmart-io=1 -Wall -msfr-warn=off   -I ../../Source/include -I ../../Source/portable/MPLAB/PIC24_dsPIC -I ../Common/include -I . -Wextra  -mdfp=${DFP_DIR}/xc16
 	@${FIXDEPS} "${OBJECTDIR}/Source/portable/MPLAB/PIC24_dsPIC/port.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/Source/portable/MemMang/heap_1.o: Source/portable/MemMang/heap_1.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Source/portable/MemMang" 
+	@${RM} ${OBJECTDIR}/Source/portable/MemMang/heap_1.o.d 
+	@${RM} ${OBJECTDIR}/Source/portable/MemMang/heap_1.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Source/portable/MemMang/heap_1.c  -o ${OBJECTDIR}/Source/portable/MemMang/heap_1.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Source/portable/MemMang/heap_1.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -ffunction-sections -fdata-sections -O0 -I"Source/include" -I"Source/portable/MPLAB/PIC24_dsPIC" -I"Common/include" -msmart-io=1 -Wall -msfr-warn=off   -I ../../Source/include -I ../../Source/portable/MPLAB/PIC24_dsPIC -I ../Common/include -I . -Wextra  -mdfp=${DFP_DIR}/xc16
+	@${FIXDEPS} "${OBJECTDIR}/Source/portable/MemMang/heap_1.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/Source/croutine.o: Source/croutine.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Source" 
@@ -144,13 +151,6 @@ ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -ffunction-sections -fdata-sections -O0 -I"Source/include" -I"Source/portable/MPLAB/PIC24_dsPIC" -I"Common/include" -msmart-io=1 -Wall -msfr-warn=off   -I ../../Source/include -I ../../Source/portable/MPLAB/PIC24_dsPIC -I ../Common/include -I . -Wextra  -mdfp=${DFP_DIR}/xc16
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/Source/portable/MemMang/heap_1.o: Source/portable/MemMang/heap_1.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/Source/portable/MemMang" 
-	@${RM} ${OBJECTDIR}/Source/portable/MemMang/heap_1.o.d 
-	@${RM} ${OBJECTDIR}/Source/portable/MemMang/heap_1.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  Source/portable/MemMang/heap_1.c  -o ${OBJECTDIR}/Source/portable/MemMang/heap_1.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Source/portable/MemMang/heap_1.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1  -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -ffunction-sections -fdata-sections -O0 -I"Source/include" -I"Source/portable/MPLAB/PIC24_dsPIC" -I"Common/include" -msmart-io=1 -Wall -msfr-warn=off   -I ../../Source/include -I ../../Source/portable/MPLAB/PIC24_dsPIC -I ../Common/include -I . -Wextra  -mdfp=${DFP_DIR}/xc16
-	@${FIXDEPS} "${OBJECTDIR}/Source/portable/MemMang/heap_1.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
 ${OBJECTDIR}/adc.o: adc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/adc.o.d 
@@ -172,6 +172,13 @@ ${OBJECTDIR}/Source/portable/MPLAB/PIC24_dsPIC/port.o: Source/portable/MPLAB/PIC
 	@${RM} ${OBJECTDIR}/Source/portable/MPLAB/PIC24_dsPIC/port.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  Source/portable/MPLAB/PIC24_dsPIC/port.c  -o ${OBJECTDIR}/Source/portable/MPLAB/PIC24_dsPIC/port.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Source/portable/MPLAB/PIC24_dsPIC/port.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -ffunction-sections -fdata-sections -O0 -I"Source/include" -I"Source/portable/MPLAB/PIC24_dsPIC" -I"Common/include" -msmart-io=1 -Wall -msfr-warn=off   -I ../../Source/include -I ../../Source/portable/MPLAB/PIC24_dsPIC -I ../Common/include -I . -Wextra  -mdfp=${DFP_DIR}/xc16
 	@${FIXDEPS} "${OBJECTDIR}/Source/portable/MPLAB/PIC24_dsPIC/port.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/Source/portable/MemMang/heap_1.o: Source/portable/MemMang/heap_1.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/Source/portable/MemMang" 
+	@${RM} ${OBJECTDIR}/Source/portable/MemMang/heap_1.o.d 
+	@${RM} ${OBJECTDIR}/Source/portable/MemMang/heap_1.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  Source/portable/MemMang/heap_1.c  -o ${OBJECTDIR}/Source/portable/MemMang/heap_1.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Source/portable/MemMang/heap_1.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -ffunction-sections -fdata-sections -O0 -I"Source/include" -I"Source/portable/MPLAB/PIC24_dsPIC" -I"Common/include" -msmart-io=1 -Wall -msfr-warn=off   -I ../../Source/include -I ../../Source/portable/MPLAB/PIC24_dsPIC -I ../Common/include -I . -Wextra  -mdfp=${DFP_DIR}/xc16
+	@${FIXDEPS} "${OBJECTDIR}/Source/portable/MemMang/heap_1.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/Source/croutine.o: Source/croutine.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Source" 
@@ -214,13 +221,6 @@ ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/main.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -ffunction-sections -fdata-sections -O0 -I"Source/include" -I"Source/portable/MPLAB/PIC24_dsPIC" -I"Common/include" -msmart-io=1 -Wall -msfr-warn=off   -I ../../Source/include -I ../../Source/portable/MPLAB/PIC24_dsPIC -I ../Common/include -I . -Wextra  -mdfp=${DFP_DIR}/xc16
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/Source/portable/MemMang/heap_1.o: Source/portable/MemMang/heap_1.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/Source/portable/MemMang" 
-	@${RM} ${OBJECTDIR}/Source/portable/MemMang/heap_1.o.d 
-	@${RM} ${OBJECTDIR}/Source/portable/MemMang/heap_1.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  Source/portable/MemMang/heap_1.c  -o ${OBJECTDIR}/Source/portable/MemMang/heap_1.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Source/portable/MemMang/heap_1.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -no-legacy-libc  $(COMPARISON_BUILD)  -ffunction-sections -fdata-sections -O0 -I"Source/include" -I"Source/portable/MPLAB/PIC24_dsPIC" -I"Common/include" -msmart-io=1 -Wall -msfr-warn=off   -I ../../Source/include -I ../../Source/portable/MPLAB/PIC24_dsPIC -I ../Common/include -I . -Wextra  -mdfp=${DFP_DIR}/xc16
-	@${FIXDEPS} "${OBJECTDIR}/Source/portable/MemMang/heap_1.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/adc.o: adc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 

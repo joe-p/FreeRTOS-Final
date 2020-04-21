@@ -30,9 +30,6 @@
       </logicalFolder>
       <itemPath>FreeRTOSConfig.h</itemPath>
       <itemPath>main.c</itemPath>
-      <itemPath>timertest.h</itemPath>
-      <itemPath>serial/serial.c</itemPath>
-      <itemPath>ParTest/ParTest.c</itemPath>
       <itemPath>adc.c</itemPath>
       <itemPath>dac.c</itemPath>
     </logicalFolder>
@@ -279,8 +276,6 @@
         <property key="programoptions.uselvpprogramming" value="false"/>
         <property key="voltagevalue" value="3.25"/>
       </ICD3PlatformTool>
-      <item path="ParTest/ParTest.c" ex="true" overriding="false">
-      </item>
       <Simulator>
         <property key="codecoverage.enabled" value="Disable"/>
         <property key="codecoverage.enableoutputtofile" value="false"/>
@@ -712,10 +707,6 @@
                   value=""/>
         <property key="warningmessagebreakoptions.warningmessages" value="holdstate"/>
       </Simulator>
-      <item path="serial/serial.c" ex="true" overriding="false">
-      </item>
-      <item path="timertest.h" ex="true" overriding="false">
-      </item>
     </conf>
   </confs>
 </configurationDescriptor>
