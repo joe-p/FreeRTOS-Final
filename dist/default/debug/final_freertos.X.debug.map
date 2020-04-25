@@ -20,13 +20,13 @@ Command:
   -Lc:/program files/microchip/xc16/v1.50/bin/bin/../../support/dsPIC33F/gld \
   build/default/debug/Source/portable/MPLAB/PIC24_dsPIC/port.o \
   build/default/debug/Source/portable/MPLAB/PIC24_dsPIC/portasm_PIC24.o \
+  build/default/debug/Source/portable/MemMang/heap_1.o \
   build/default/debug/Source/croutine.o \
   build/default/debug/Source/list.o \
   build/default/debug/Source/queue.o \
   build/default/debug/Source/tasks.o \
   build/default/debug/Source/timers.o \
   build/default/debug/main.o \
-  build/default/debug/Source/portable/MemMang/heap_1.o \
   build/default/debug/adc.o \
   build/default/debug/dac.o \
   --local-stack \
@@ -253,15 +253,15 @@ section                    address   length (PC units)   length (bytes) (dec)
 .text.pcTimerGetName        0x2d54                0x10            0x18  (24)
 .text.vAdcTimerCallback     0x2d64                0x10            0x18  (24)
 .text.vListInitialiseItem    0x2d74                 0xe            0x15  (21)
-.text.vTaskSuspendAll       0x2d82                 0xc            0x12  (18)
-.text.xPortGetFreeHeapSize    0x2d8e                 0xc            0x12  (18)
+.text.xPortGetFreeHeapSize    0x2d82                 0xc            0x12  (18)
+.text.vTaskSuspendAll       0x2d8e                 0xc            0x12  (18)
 .text.vTaskMissedYield      0x2d9a                 0xa             0xf  (15)
 .text.main                  0x2da4                 0xa             0xf  (15)
-.text.uxTaskGetNumberOfTasks    0x2dae                 0x8             0xc  (12)
-.text.xTimerGetTimerDaemonTaskHandle    0x2db6                 0x8             0xc  (12)
-.text.vApplicationIdleHook    0x2dbe                 0x8             0xc  (12)
-.text.vPortFree             0x2dc6                 0x8             0xc  (12)
-.text.vPortInitialiseBlocks    0x2dce                 0x8             0xc  (12)
+.text.vPortFree             0x2dae                 0x8             0xc  (12)
+.text.vPortInitialiseBlocks    0x2db6                 0x8             0xc  (12)
+.text.uxTaskGetNumberOfTasks    0x2dbe                 0x8             0xc  (12)
+.text.xTimerGetTimerDaemonTaskHandle    0x2dc6                 0x8             0xc  (12)
+.text.vApplicationIdleHook    0x2dce                 0x8             0xc  (12)
 .text.vPortEndScheduler     0x2dd6                 0x6             0x9  (9)
 .text.prvCheckTasksWaitingTermination    0x2ddc                 0x6             0x9  (9)
 
@@ -273,34 +273,34 @@ section                    address   length (PC units)   length (bytes) (dec)
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
 .ndata.uxCriticalNesting     0x800                   0             0x2  (2)
-.nbss.pxDelayedCoRoutineList     0x802                   0             0x2  (2)
-.nbss.pxOverflowDelayedCoRoutineList     0x804                   0             0x2  (2)
-.nbss.pxCurrentCoRoutine     0x806                   0             0x2  (2)
-.nbss.uxTopCoRoutineReadyPriority     0x808                   0             0x2  (2)
-.nbss.xCoRoutineTickCount     0x80a                   0             0x2  (2)
-.nbss.xLastTickCount         0x80c                   0             0x2  (2)
-.nbss.xPassedTicks           0x80e                   0             0x2  (2)
-.nbss.pxCurrentTCB           0x810                   0             0x2  (2)
-.nbss.pxDelayedTaskList      0x812                   0             0x2  (2)
-.nbss.pxOverflowDelayedTaskList     0x814                   0             0x2  (2)
-.nbss.uxCurrentNumberOfTasks     0x816                   0             0x2  (2)
-.nbss.xTickCount             0x818                   0             0x2  (2)
-.nbss.uxTopReadyPriority     0x81a                   0             0x2  (2)
-.nbss.xSchedulerRunning      0x81c                   0             0x2  (2)
-.nbss.xPendedTicks           0x81e                   0             0x2  (2)
-.nbss.xYieldPending          0x820                   0             0x2  (2)
-.nbss.xNumOfOverflows        0x822                   0             0x2  (2)
-.nbss.uxTaskNumber           0x824                   0             0x2  (2)
-.nbss.xNextTaskUnblockTime     0x826                   0             0x2  (2)
-.nbss.xIdleTaskHandle        0x828                   0             0x2  (2)
-.nbss.uxSchedulerSuspended     0x82a                   0             0x2  (2)
-.nbss.pxCurrentTimerList     0x82c                   0             0x2  (2)
-.nbss.pxOverflowTimerList     0x82e                   0             0x2  (2)
-.nbss.xTimerQueue            0x830                   0             0x2  (2)
-.nbss.xTimerTaskHandle       0x832                   0             0x2  (2)
-.nbss.xLastTime.13691        0x834                   0             0x2  (2)
-.nbss.xNextFreeByte          0x836                   0             0x2  (2)
-.nbss.pucAlignedHeap.13391     0x838                   0             0x2  (2)
+.nbss.xNextFreeByte          0x802                   0             0x2  (2)
+.nbss.pucAlignedHeap.13391     0x804                   0             0x2  (2)
+.nbss.pxDelayedCoRoutineList     0x806                   0             0x2  (2)
+.nbss.pxOverflowDelayedCoRoutineList     0x808                   0             0x2  (2)
+.nbss.pxCurrentCoRoutine     0x80a                   0             0x2  (2)
+.nbss.uxTopCoRoutineReadyPriority     0x80c                   0             0x2  (2)
+.nbss.xCoRoutineTickCount     0x80e                   0             0x2  (2)
+.nbss.xLastTickCount         0x810                   0             0x2  (2)
+.nbss.xPassedTicks           0x812                   0             0x2  (2)
+.nbss.pxCurrentTCB           0x814                   0             0x2  (2)
+.nbss.pxDelayedTaskList      0x816                   0             0x2  (2)
+.nbss.pxOverflowDelayedTaskList     0x818                   0             0x2  (2)
+.nbss.uxCurrentNumberOfTasks     0x81a                   0             0x2  (2)
+.nbss.xTickCount             0x81c                   0             0x2  (2)
+.nbss.uxTopReadyPriority     0x81e                   0             0x2  (2)
+.nbss.xSchedulerRunning      0x820                   0             0x2  (2)
+.nbss.xPendedTicks           0x822                   0             0x2  (2)
+.nbss.xYieldPending          0x824                   0             0x2  (2)
+.nbss.xNumOfOverflows        0x826                   0             0x2  (2)
+.nbss.uxTaskNumber           0x828                   0             0x2  (2)
+.nbss.xNextTaskUnblockTime     0x82a                   0             0x2  (2)
+.nbss.xIdleTaskHandle        0x82c                   0             0x2  (2)
+.nbss.uxSchedulerSuspended     0x82e                   0             0x2  (2)
+.nbss.pxCurrentTimerList     0x830                   0             0x2  (2)
+.nbss.pxOverflowTimerList     0x832                   0             0x2  (2)
+.nbss.xTimerQueue            0x834                   0             0x2  (2)
+.nbss.xTimerTaskHandle       0x836                   0             0x2  (2)
+.nbss.xLastTime.13691        0x838                   0             0x2  (2)
 .nbss.xAdcTimer              0x83a                   0             0x2  (2)
 .nbss.xAdcQueue              0x83c                   0             0x2  (2)
 .nbss.input_counter          0x83e                   0             0x2  (2)
@@ -337,27 +337,27 @@ Info: Project is using a large data memory model when small data memory model is
 External Symbols in Data Memory (by address):
 
                     0x0800                  _uxCriticalNesting
-                    0x0802                  _pxDelayedCoRoutineList
-                    0x0804                  _pxOverflowDelayedCoRoutineList
-                    0x0806                  _pxCurrentCoRoutine
-                    0x0808                  _uxTopCoRoutineReadyPriority
-                    0x080a                  _xCoRoutineTickCount
-                    0x080c                  _xLastTickCount
-                    0x080e                  _xPassedTicks
-                    0x0810                  _pxCurrentTCB
-                    0x0812                  _pxDelayedTaskList
-                    0x0814                  _pxOverflowDelayedTaskList
-                    0x0816                  _uxCurrentNumberOfTasks
-                    0x0818                  _xTickCount
-                    0x081a                  _uxTopReadyPriority
-                    0x081c                  _xSchedulerRunning
-                    0x081e                  _xPendedTicks
-                    0x0820                  _xYieldPending
-                    0x0822                  _xNumOfOverflows
-                    0x0824                  _uxTaskNumber
-                    0x0826                  _xNextTaskUnblockTime
-                    0x0828                  _xIdleTaskHandle
-                    0x082a                  _uxSchedulerSuspended
+                    0x0806                  _pxDelayedCoRoutineList
+                    0x0808                  _pxOverflowDelayedCoRoutineList
+                    0x080a                  _pxCurrentCoRoutine
+                    0x080c                  _uxTopCoRoutineReadyPriority
+                    0x080e                  _xCoRoutineTickCount
+                    0x0810                  _xLastTickCount
+                    0x0812                  _xPassedTicks
+                    0x0814                  _pxCurrentTCB
+                    0x0816                  _pxDelayedTaskList
+                    0x0818                  _pxOverflowDelayedTaskList
+                    0x081a                  _uxCurrentNumberOfTasks
+                    0x081c                  _xTickCount
+                    0x081e                  _uxTopReadyPriority
+                    0x0820                  _xSchedulerRunning
+                    0x0822                  _xPendedTicks
+                    0x0824                  _xYieldPending
+                    0x0826                  _xNumOfOverflows
+                    0x0828                  _uxTaskNumber
+                    0x082a                  _xNextTaskUnblockTime
+                    0x082c                  _xIdleTaskHandle
+                    0x082e                  _uxSchedulerSuspended
                     0x083a                  _xAdcTimer
                     0x083c                  _xAdcQueue
                     0x083e                  _input_counter
@@ -375,40 +375,40 @@ External Symbols in Data Memory (by address):
 External Symbols in Data Memory (by name):
 
                     0x083e                  _input_counter
-                    0x0806                  _pxCurrentCoRoutine
-                    0x0810                  _pxCurrentTCB
-                    0x0802                  _pxDelayedCoRoutineList
-                    0x0812                  _pxDelayedTaskList
-                    0x0804                  _pxOverflowDelayedCoRoutineList
-                    0x0814                  _pxOverflowDelayedTaskList
+                    0x080a                  _pxCurrentCoRoutine
+                    0x0814                  _pxCurrentTCB
+                    0x0806                  _pxDelayedCoRoutineList
+                    0x0816                  _pxDelayedTaskList
+                    0x0808                  _pxOverflowDelayedCoRoutineList
+                    0x0818                  _pxOverflowDelayedTaskList
                     0x1c6a                  _pxReadyCoRoutineLists
                     0x1c42                  _pxReadyTasksLists
                     0x0800                  _uxCriticalNesting
-                    0x0816                  _uxCurrentNumberOfTasks
-                    0x082a                  _uxSchedulerSuspended
-                    0x0824                  _uxTaskNumber
-                    0x0808                  _uxTopCoRoutineReadyPriority
-                    0x081a                  _uxTopReadyPriority
+                    0x081a                  _uxCurrentNumberOfTasks
+                    0x082e                  _uxSchedulerSuspended
+                    0x0828                  _uxTaskNumber
+                    0x080c                  _uxTopCoRoutineReadyPriority
+                    0x081e                  _uxTopReadyPriority
                     0x083c                  _xAdcQueue
                     0x083a                  _xAdcTimer
-                    0x080a                  _xCoRoutineTickCount
+                    0x080e                  _xCoRoutineTickCount
                     0x1c7e                  _xDelayedCoRoutineList1
                     0x1c88                  _xDelayedCoRoutineList2
                     0x1c9c                  _xDelayedTaskList1
                     0x1ca6                  _xDelayedTaskList2
-                    0x0828                  _xIdleTaskHandle
-                    0x080c                  _xLastTickCount
-                    0x0826                  _xNextTaskUnblockTime
-                    0x0822                  _xNumOfOverflows
+                    0x082c                  _xIdleTaskHandle
+                    0x0810                  _xLastTickCount
+                    0x082a                  _xNextTaskUnblockTime
+                    0x0826                  _xNumOfOverflows
                     0x0840                  _xOutputQueue
-                    0x080e                  _xPassedTicks
-                    0x081e                  _xPendedTicks
+                    0x0812                  _xPassedTicks
+                    0x0822                  _xPendedTicks
                     0x1c92                  _xPendingReadyCoRoutineList
                     0x1cb0                  _xPendingReadyList
-                    0x081c                  _xSchedulerRunning
+                    0x0820                  _xSchedulerRunning
                     0x1cba                  _xSuspendedTaskList
-                    0x0818                  _xTickCount
-                    0x0820                  _xYieldPending
+                    0x081c                  _xTickCount
+                    0x0824                  _xYieldPending
 
 External Symbols in Program Memory (by address):
 
@@ -547,15 +547,15 @@ External Symbols in Program Memory (by address):
                   0x002d54                  _pcTimerGetName
                   0x002d64                  _vAdcTimerCallback
                   0x002d74                  _vListInitialiseItem
-                  0x002d82                  _vTaskSuspendAll
-                  0x002d8e                  _xPortGetFreeHeapSize
+                  0x002d82                  _xPortGetFreeHeapSize
+                  0x002d8e                  _vTaskSuspendAll
                   0x002d9a                  _vTaskMissedYield
                   0x002da4                  _main
-                  0x002dae                  _uxTaskGetNumberOfTasks
-                  0x002db6                  _xTimerGetTimerDaemonTaskHandle
-                  0x002dbe                  _vApplicationIdleHook
-                  0x002dc6                  _vPortFree
-                  0x002dce                  _vPortInitialiseBlocks
+                  0x002dae                  _vPortFree
+                  0x002db6                  _vPortInitialiseBlocks
+                  0x002dbe                  _uxTaskGetNumberOfTasks
+                  0x002dc6                  _xTimerGetTimerDaemonTaskHandle
+                  0x002dce                  _vApplicationIdleHook
                   0x002dd6                  _vPortEndScheduler
                   0x002ddc                  _prvCheckTasksWaitingTermination
                   0x0abf00                  __FSEC.sec
@@ -625,11 +625,11 @@ External Symbols in Program Memory (by name):
                   0x002cc4                  _uxQueueMessagesWaiting
                   0x002cd8                  _uxQueueMessagesWaitingFromISR
                   0x002b66                  _uxQueueSpacesAvailable
-                  0x002dae                  _uxTaskGetNumberOfTasks
+                  0x002dbe                  _uxTaskGetNumberOfTasks
                   0x002c3a                  _uxTaskResetEventItemValue
                   0x00298e                  _uxTimerGetReloadMode
                   0x002d64                  _vAdcTimerCallback
-                  0x002dbe                  _vApplicationIdleHook
+                  0x002dce                  _vApplicationIdleHook
                   0x002cae                  _vApplicationStackOverflowHook
                   0x002412                  _vCoRoutineAddToDelayedList
                   0x001cb8                  _vCoRoutineSchedule
@@ -642,8 +642,8 @@ External Symbols in Program Memory (by name):
                   0x002dd6                  _vPortEndScheduler
                   0x002bbc                  _vPortEnterCritical
                   0x002b84                  _vPortExitCritical
-                  0x002dc6                  _vPortFree
-                  0x002dce                  _vPortInitialiseBlocks
+                  0x002dae                  _vPortFree
+                  0x002db6                  _vPortInitialiseBlocks
                   0x0022da                  _vPortYield
                   0x002d14                  _vQueueDelete
                   0x002458                  _vQueueWaitForMessageRestricted
@@ -662,13 +662,13 @@ External Symbols in Program Memory (by name):
                   0x002c22                  _vTaskSetTimeOutState
                   0x002524                  _vTaskStartScheduler
                   0x001a88                  _vTaskSuspend
-                  0x002d82                  _vTaskSuspendAll
+                  0x002d8e                  _vTaskSuspendAll
                   0x001684                  _vTaskSwitchContext
                   0x0027f8                  _vTimerSetReloadMode
                   0x002c6a                  _vTimerSetTimerID
                   0x0015ee                  _xCoRoutineCreate
                   0x00261c                  _xCoRoutineRemoveFromEventList
-                  0x002d8e                  _xPortGetFreeHeapSize
+                  0x002d82                  _xPortGetFreeHeapSize
                   0x00285c                  _xPortStartScheduler
                   0x000dd4                  _xQueueCRReceive
                   0x001822                  _xQueueCRReceiveFromISR
@@ -706,7 +706,7 @@ External Symbols in Program Memory (by name):
                   0x00211a                  _xTimerGenericCommand
                   0x002d00                  _xTimerGetExpiryTime
                   0x002d44                  _xTimerGetPeriod
-                  0x002db6                  _xTimerGetTimerDaemonTaskHandle
+                  0x002dc6                  _xTimerGetTimerDaemonTaskHandle
                   0x0029b6                  _xTimerIsTimerActive
                   0x002c98                  build/default/debug/Source/timers.o:_prvTimerTask
 
@@ -733,13 +733,13 @@ Linker script and memory map
 
 LOAD build/default/debug/Source/portable/MPLAB/PIC24_dsPIC/port.o
 LOAD build/default/debug/Source/portable/MPLAB/PIC24_dsPIC/portasm_PIC24.o
+LOAD build/default/debug/Source/portable/MemMang/heap_1.o
 LOAD build/default/debug/Source/croutine.o
 LOAD build/default/debug/Source/list.o
 LOAD build/default/debug/Source/queue.o
 LOAD build/default/debug/Source/tasks.o
 LOAD build/default/debug/Source/timers.o
 LOAD build/default/debug/main.o
-LOAD build/default/debug/Source/portable/MemMang/heap_1.o
 LOAD build/default/debug/adc.o
 LOAD build/default/debug/dac.o
                     0x0001                  __MPLAB_BUILD = 0x1
@@ -898,13 +898,13 @@ __FDEVOPT1
  *(.debug_info)
  .debug_info      0x000000        0xc7d build/default/debug/Source/portable/MPLAB/PIC24_dsPIC/port.o
  .debug_info      0x000c7d         0xab build/default/debug/Source/portable/MPLAB/PIC24_dsPIC/portasm_PIC24.o
- .debug_info      0x000d28        0x8ed build/default/debug/Source/croutine.o
- .debug_info      0x001615        0x441 build/default/debug/Source/list.o
- .debug_info      0x001a56       0x13c5 build/default/debug/Source/queue.o
- .debug_info      0x002e1b       0x1b4c build/default/debug/Source/tasks.o
- .debug_info      0x004967        0xe96 build/default/debug/Source/timers.o
- .debug_info      0x0057fd        0x380 build/default/debug/main.o
- .debug_info      0x005b7d        0x2ac build/default/debug/Source/portable/MemMang/heap_1.o
+ .debug_info      0x000d28        0x2ac build/default/debug/Source/portable/MemMang/heap_1.o
+ .debug_info      0x000fd4        0x8ed build/default/debug/Source/croutine.o
+ .debug_info      0x0018c1        0x441 build/default/debug/Source/list.o
+ .debug_info      0x001d02       0x13c5 build/default/debug/Source/queue.o
+ .debug_info      0x0030c7       0x1b4c build/default/debug/Source/tasks.o
+ .debug_info      0x004c13        0xe96 build/default/debug/Source/timers.o
+ .debug_info      0x005aa9        0x380 build/default/debug/main.o
  .debug_info      0x005e29        0x901 build/default/debug/adc.o
  .debug_info      0x00672a        0x394 build/default/debug/dac.o
  *(.gnu.linkonce.wi.*)
@@ -913,13 +913,13 @@ __FDEVOPT1
  *(.debug_abbrev)
  .debug_abbrev    0x000000        0x1e3 build/default/debug/Source/portable/MPLAB/PIC24_dsPIC/port.o
  .debug_abbrev    0x0001e3         0x14 build/default/debug/Source/portable/MPLAB/PIC24_dsPIC/portasm_PIC24.o
- .debug_abbrev    0x0001f7        0x1dd build/default/debug/Source/croutine.o
- .debug_abbrev    0x0003d4         0xe1 build/default/debug/Source/list.o
- .debug_abbrev    0x0004b5        0x1d2 build/default/debug/Source/queue.o
- .debug_abbrev    0x000687        0x209 build/default/debug/Source/tasks.o
- .debug_abbrev    0x000890        0x1a3 build/default/debug/Source/timers.o
- .debug_abbrev    0x000a33        0x10c build/default/debug/main.o
- .debug_abbrev    0x000b3f         0xc8 build/default/debug/Source/portable/MemMang/heap_1.o
+ .debug_abbrev    0x0001f7         0xc8 build/default/debug/Source/portable/MemMang/heap_1.o
+ .debug_abbrev    0x0002bf        0x1dd build/default/debug/Source/croutine.o
+ .debug_abbrev    0x00049c         0xe1 build/default/debug/Source/list.o
+ .debug_abbrev    0x00057d        0x1d2 build/default/debug/Source/queue.o
+ .debug_abbrev    0x00074f        0x209 build/default/debug/Source/tasks.o
+ .debug_abbrev    0x000958        0x1a3 build/default/debug/Source/timers.o
+ .debug_abbrev    0x000afb        0x10c build/default/debug/main.o
  .debug_abbrev    0x000c07        0x1ac build/default/debug/adc.o
  .debug_abbrev    0x000db3        0x107 build/default/debug/dac.o
 
@@ -927,26 +927,26 @@ __FDEVOPT1
  *(.debug_line)
  .debug_line      0x000000        0x1eb build/default/debug/Source/portable/MPLAB/PIC24_dsPIC/port.o
  .debug_line      0x0001eb         0x86 build/default/debug/Source/portable/MPLAB/PIC24_dsPIC/portasm_PIC24.o
- .debug_line      0x000271        0x239 build/default/debug/Source/croutine.o
- .debug_line      0x0004aa        0x136 build/default/debug/Source/list.o
- .debug_line      0x0005e0        0x550 build/default/debug/Source/queue.o
- .debug_line      0x000b30        0x6f4 build/default/debug/Source/tasks.o
- .debug_line      0x001224        0x33b build/default/debug/Source/timers.o
- .debug_line      0x00155f        0x142 build/default/debug/main.o
- .debug_line      0x0016a1         0xe7 build/default/debug/Source/portable/MemMang/heap_1.o
+ .debug_line      0x000271         0xe7 build/default/debug/Source/portable/MemMang/heap_1.o
+ .debug_line      0x000358        0x239 build/default/debug/Source/croutine.o
+ .debug_line      0x000591        0x136 build/default/debug/Source/list.o
+ .debug_line      0x0006c7        0x550 build/default/debug/Source/queue.o
+ .debug_line      0x000c17        0x6f4 build/default/debug/Source/tasks.o
+ .debug_line      0x00130b        0x33b build/default/debug/Source/timers.o
+ .debug_line      0x001646        0x142 build/default/debug/main.o
  .debug_line      0x001788        0x197 build/default/debug/adc.o
  .debug_line      0x00191f        0x1b0 build/default/debug/dac.o
 
 .debug_frame      0x000000        0xe24
  *(.debug_frame)
  .debug_frame     0x000000         0xf6 build/default/debug/Source/portable/MPLAB/PIC24_dsPIC/port.o
- .debug_frame     0x0000f6         0xca build/default/debug/Source/croutine.o
- .debug_frame     0x0001c0         0x96 build/default/debug/Source/list.o
- .debug_frame     0x000256        0x2d2 build/default/debug/Source/queue.o
- .debug_frame     0x000528        0x49a build/default/debug/Source/tasks.o
- .debug_frame     0x0009c2        0x250 build/default/debug/Source/timers.o
- .debug_frame     0x000c12         0x62 build/default/debug/main.o
- .debug_frame     0x000c74         0x7c build/default/debug/Source/portable/MemMang/heap_1.o
+ .debug_frame     0x0000f6         0x7c build/default/debug/Source/portable/MemMang/heap_1.o
+ .debug_frame     0x000172         0xca build/default/debug/Source/croutine.o
+ .debug_frame     0x00023c         0x96 build/default/debug/Source/list.o
+ .debug_frame     0x0002d2        0x2d2 build/default/debug/Source/queue.o
+ .debug_frame     0x0005a4        0x49a build/default/debug/Source/tasks.o
+ .debug_frame     0x000a3e        0x250 build/default/debug/Source/timers.o
+ .debug_frame     0x000c8e         0x62 build/default/debug/main.o
  .debug_frame     0x000cf0         0x96 build/default/debug/adc.o
  .debug_frame     0x000d86         0x9e build/default/debug/dac.o
 
@@ -973,19 +973,19 @@ __FDEVOPT1
  .debug_pubnames
                   0x000000         0xd6 build/default/debug/Source/portable/MPLAB/PIC24_dsPIC/port.o
  .debug_pubnames
-                  0x0000d6        0x1f4 build/default/debug/Source/croutine.o
+                  0x0000d6         0x64 build/default/debug/Source/portable/MemMang/heap_1.o
  .debug_pubnames
-                  0x0002ca         0x72 build/default/debug/Source/list.o
+                  0x00013a        0x1f4 build/default/debug/Source/croutine.o
  .debug_pubnames
-                  0x00033c        0x211 build/default/debug/Source/queue.o
+                  0x00032e         0x72 build/default/debug/Source/list.o
  .debug_pubnames
-                  0x00054d        0x5fa build/default/debug/Source/tasks.o
+                  0x0003a0        0x211 build/default/debug/Source/queue.o
  .debug_pubnames
-                  0x000b47        0x12c build/default/debug/Source/timers.o
+                  0x0005b1        0x5fa build/default/debug/Source/tasks.o
  .debug_pubnames
-                  0x000c73         0x56 build/default/debug/main.o
+                  0x000bab        0x12c build/default/debug/Source/timers.o
  .debug_pubnames
-                  0x000cc9         0x64 build/default/debug/Source/portable/MemMang/heap_1.o
+                  0x000cd7         0x56 build/default/debug/main.o
  .debug_pubnames
                   0x000d2d         0x92 build/default/debug/adc.o
  .debug_pubnames
@@ -1001,19 +1001,19 @@ __FDEVOPT1
  .debug_aranges
                   0x000050         0x18 build/default/debug/Source/portable/MPLAB/PIC24_dsPIC/portasm_PIC24.o
  .debug_aranges
-                  0x000068         0x50 build/default/debug/Source/croutine.o
+                  0x000068         0x38 build/default/debug/Source/portable/MemMang/heap_1.o
  .debug_aranges
-                  0x0000b8         0x40 build/default/debug/Source/list.o
+                  0x0000a0         0x50 build/default/debug/Source/croutine.o
  .debug_aranges
-                  0x0000f8         0xf0 build/default/debug/Source/queue.o
+                  0x0000f0         0x40 build/default/debug/Source/list.o
  .debug_aranges
-                  0x0001e8        0x178 build/default/debug/Source/tasks.o
+                  0x000130         0xf0 build/default/debug/Source/queue.o
  .debug_aranges
-                  0x000360         0xc8 build/default/debug/Source/timers.o
+                  0x000220        0x178 build/default/debug/Source/tasks.o
  .debug_aranges
-                  0x000428         0x30 build/default/debug/main.o
+                  0x000398         0xc8 build/default/debug/Source/timers.o
  .debug_aranges
-                  0x000458         0x38 build/default/debug/Source/portable/MemMang/heap_1.o
+                  0x000460         0x30 build/default/debug/main.o
  .debug_aranges
                   0x000490         0x30 build/default/debug/adc.o
  .debug_aranges
@@ -3129,19 +3129,19 @@ LOAD data_init
  .debug_pubtypes
                   0x000500        0x10c build/default/debug/Source/portable/MPLAB/PIC24_dsPIC/port.o
  .debug_pubtypes
-                  0x00060c        0x113 build/default/debug/Source/croutine.o
+                  0x00060c         0x36 build/default/debug/Source/portable/MemMang/heap_1.o
  .debug_pubtypes
-                  0x00071f         0x98 build/default/debug/Source/list.o
+                  0x000642        0x113 build/default/debug/Source/croutine.o
  .debug_pubtypes
-                  0x0007b7        0x198 build/default/debug/Source/queue.o
+                  0x000755         0x98 build/default/debug/Source/list.o
  .debug_pubtypes
-                  0x00094f        0x1a4 build/default/debug/Source/tasks.o
+                  0x0007ed        0x198 build/default/debug/Source/queue.o
  .debug_pubtypes
-                  0x000af3        0x18c build/default/debug/Source/timers.o
+                  0x000985        0x1a4 build/default/debug/Source/tasks.o
  .debug_pubtypes
-                  0x000c7f         0x49 build/default/debug/main.o
+                  0x000b29        0x18c build/default/debug/Source/timers.o
  .debug_pubtypes
-                  0x000cc8         0x36 build/default/debug/Source/portable/MemMang/heap_1.o
+                  0x000cb5         0x49 build/default/debug/main.o
  .debug_pubtypes
                   0x000cfe         0xca build/default/debug/adc.o
  .debug_pubtypes
@@ -3152,19 +3152,19 @@ __c30_signature
  __c30_signature
                   0x000e23          0x6 build/default/debug/Source/portable/MPLAB/PIC24_dsPIC/port.o
  __c30_signature
-                  0x000e29          0x6 build/default/debug/Source/croutine.o
+                  0x000e29          0x6 build/default/debug/Source/portable/MemMang/heap_1.o
  __c30_signature
-                  0x000e2f          0x6 build/default/debug/Source/list.o
+                  0x000e2f          0x6 build/default/debug/Source/croutine.o
  __c30_signature
-                  0x000e35          0x6 build/default/debug/Source/queue.o
+                  0x000e35          0x6 build/default/debug/Source/list.o
  __c30_signature
-                  0x000e3b          0x6 build/default/debug/Source/tasks.o
+                  0x000e3b          0x6 build/default/debug/Source/queue.o
  __c30_signature
-                  0x000e41          0x6 build/default/debug/Source/timers.o
+                  0x000e41          0x6 build/default/debug/Source/tasks.o
  __c30_signature
-                  0x000e47          0x6 build/default/debug/main.o
+                  0x000e47          0x6 build/default/debug/Source/timers.o
  __c30_signature
-                  0x000e4d          0x6 build/default/debug/Source/portable/MemMang/heap_1.o
+                  0x000e4d          0x6 build/default/debug/main.o
  __c30_signature
                   0x000e53          0x6 build/default/debug/adc.o
  __c30_signature
@@ -3216,166 +3216,166 @@ __c30_signature
                     0x0800          0x2 build/default/debug/Source/portable/MPLAB/PIC24_dsPIC/port.o
                     0x0800                  _uxCriticalNesting
 
-.nbss.pxDelayedCoRoutineList
-                    0x0802          0x2
- .nbss.pxDelayedCoRoutineList
-                    0x0802          0x2 build/default/debug/Source/croutine.o
-                    0x0802                  _pxDelayedCoRoutineList
-
-.nbss.pxOverflowDelayedCoRoutineList
-                    0x0804          0x2
- .nbss.pxOverflowDelayedCoRoutineList
-                    0x0804          0x2 build/default/debug/Source/croutine.o
-                    0x0804                  _pxOverflowDelayedCoRoutineList
-
-.nbss.pxCurrentCoRoutine
-                    0x0806          0x2
- .nbss.pxCurrentCoRoutine
-                    0x0806          0x2 build/default/debug/Source/croutine.o
-                    0x0806                  _pxCurrentCoRoutine
-
-.nbss.uxTopCoRoutineReadyPriority
-                    0x0808          0x2
- .nbss.uxTopCoRoutineReadyPriority
-                    0x0808          0x2 build/default/debug/Source/croutine.o
-                    0x0808                  _uxTopCoRoutineReadyPriority
-
-.nbss.xCoRoutineTickCount
-                    0x080a          0x2
- .nbss.xCoRoutineTickCount
-                    0x080a          0x2 build/default/debug/Source/croutine.o
-                    0x080a                  _xCoRoutineTickCount
-
-.nbss.xLastTickCount
-                    0x080c          0x2
- .nbss.xLastTickCount
-                    0x080c          0x2 build/default/debug/Source/croutine.o
-                    0x080c                  _xLastTickCount
-
-.nbss.xPassedTicks
-                    0x080e          0x2
- .nbss.xPassedTicks
-                    0x080e          0x2 build/default/debug/Source/croutine.o
-                    0x080e                  _xPassedTicks
-
-.nbss.pxCurrentTCB
-                    0x0810          0x2
- .nbss.pxCurrentTCB
-                    0x0810          0x2 build/default/debug/Source/tasks.o
-                    0x0810                  _pxCurrentTCB
-
-.nbss.pxDelayedTaskList
-                    0x0812          0x2
- .nbss.pxDelayedTaskList
-                    0x0812          0x2 build/default/debug/Source/tasks.o
-                    0x0812                  _pxDelayedTaskList
-
-.nbss.pxOverflowDelayedTaskList
-                    0x0814          0x2
- .nbss.pxOverflowDelayedTaskList
-                    0x0814          0x2 build/default/debug/Source/tasks.o
-                    0x0814                  _pxOverflowDelayedTaskList
-
-.nbss.uxCurrentNumberOfTasks
-                    0x0816          0x2
- .nbss.uxCurrentNumberOfTasks
-                    0x0816          0x2 build/default/debug/Source/tasks.o
-                    0x0816                  _uxCurrentNumberOfTasks
-
-.nbss.xTickCount
-                    0x0818          0x2
- .nbss.xTickCount
-                    0x0818          0x2 build/default/debug/Source/tasks.o
-                    0x0818                  _xTickCount
-
-.nbss.uxTopReadyPriority
-                    0x081a          0x2
- .nbss.uxTopReadyPriority
-                    0x081a          0x2 build/default/debug/Source/tasks.o
-                    0x081a                  _uxTopReadyPriority
-
-.nbss.xSchedulerRunning
-                    0x081c          0x2
- .nbss.xSchedulerRunning
-                    0x081c          0x2 build/default/debug/Source/tasks.o
-                    0x081c                  _xSchedulerRunning
-
-.nbss.xPendedTicks
-                    0x081e          0x2
- .nbss.xPendedTicks
-                    0x081e          0x2 build/default/debug/Source/tasks.o
-                    0x081e                  _xPendedTicks
-
-.nbss.xYieldPending
-                    0x0820          0x2
- .nbss.xYieldPending
-                    0x0820          0x2 build/default/debug/Source/tasks.o
-                    0x0820                  _xYieldPending
-
-.nbss.xNumOfOverflows
-                    0x0822          0x2
- .nbss.xNumOfOverflows
-                    0x0822          0x2 build/default/debug/Source/tasks.o
-                    0x0822                  _xNumOfOverflows
-
-.nbss.uxTaskNumber
-                    0x0824          0x2
- .nbss.uxTaskNumber
-                    0x0824          0x2 build/default/debug/Source/tasks.o
-                    0x0824                  _uxTaskNumber
-
-.nbss.xNextTaskUnblockTime
-                    0x0826          0x2
- .nbss.xNextTaskUnblockTime
-                    0x0826          0x2 build/default/debug/Source/tasks.o
-                    0x0826                  _xNextTaskUnblockTime
-
-.nbss.xIdleTaskHandle
-                    0x0828          0x2
- .nbss.xIdleTaskHandle
-                    0x0828          0x2 build/default/debug/Source/tasks.o
-                    0x0828                  _xIdleTaskHandle
-
-.nbss.uxSchedulerSuspended
-                    0x082a          0x2
- .nbss.uxSchedulerSuspended
-                    0x082a          0x2 build/default/debug/Source/tasks.o
-                    0x082a                  _uxSchedulerSuspended
-
-.nbss.pxCurrentTimerList
-                    0x082c          0x2
- .nbss.pxCurrentTimerList
-                    0x082c          0x2 build/default/debug/Source/timers.o
-
-.nbss.pxOverflowTimerList
-                    0x082e          0x2
- .nbss.pxOverflowTimerList
-                    0x082e          0x2 build/default/debug/Source/timers.o
-
-.nbss.xTimerQueue
-                    0x0830          0x2
- .nbss.xTimerQueue
-                    0x0830          0x2 build/default/debug/Source/timers.o
-
-.nbss.xTimerTaskHandle
-                    0x0832          0x2
- .nbss.xTimerTaskHandle
-                    0x0832          0x2 build/default/debug/Source/timers.o
-
-.nbss.xLastTime.13691
-                    0x0834          0x2
- .nbss.xLastTime.13691
-                    0x0834          0x2 build/default/debug/Source/timers.o
-
 .nbss.xNextFreeByte
-                    0x0836          0x2
+                    0x0802          0x2
  .nbss.xNextFreeByte
-                    0x0836          0x2 build/default/debug/Source/portable/MemMang/heap_1.o
+                    0x0802          0x2 build/default/debug/Source/portable/MemMang/heap_1.o
 
 .nbss.pucAlignedHeap.13391
-                    0x0838          0x2
+                    0x0804          0x2
  .nbss.pucAlignedHeap.13391
-                    0x0838          0x2 build/default/debug/Source/portable/MemMang/heap_1.o
+                    0x0804          0x2 build/default/debug/Source/portable/MemMang/heap_1.o
+
+.nbss.pxDelayedCoRoutineList
+                    0x0806          0x2
+ .nbss.pxDelayedCoRoutineList
+                    0x0806          0x2 build/default/debug/Source/croutine.o
+                    0x0806                  _pxDelayedCoRoutineList
+
+.nbss.pxOverflowDelayedCoRoutineList
+                    0x0808          0x2
+ .nbss.pxOverflowDelayedCoRoutineList
+                    0x0808          0x2 build/default/debug/Source/croutine.o
+                    0x0808                  _pxOverflowDelayedCoRoutineList
+
+.nbss.pxCurrentCoRoutine
+                    0x080a          0x2
+ .nbss.pxCurrentCoRoutine
+                    0x080a          0x2 build/default/debug/Source/croutine.o
+                    0x080a                  _pxCurrentCoRoutine
+
+.nbss.uxTopCoRoutineReadyPriority
+                    0x080c          0x2
+ .nbss.uxTopCoRoutineReadyPriority
+                    0x080c          0x2 build/default/debug/Source/croutine.o
+                    0x080c                  _uxTopCoRoutineReadyPriority
+
+.nbss.xCoRoutineTickCount
+                    0x080e          0x2
+ .nbss.xCoRoutineTickCount
+                    0x080e          0x2 build/default/debug/Source/croutine.o
+                    0x080e                  _xCoRoutineTickCount
+
+.nbss.xLastTickCount
+                    0x0810          0x2
+ .nbss.xLastTickCount
+                    0x0810          0x2 build/default/debug/Source/croutine.o
+                    0x0810                  _xLastTickCount
+
+.nbss.xPassedTicks
+                    0x0812          0x2
+ .nbss.xPassedTicks
+                    0x0812          0x2 build/default/debug/Source/croutine.o
+                    0x0812                  _xPassedTicks
+
+.nbss.pxCurrentTCB
+                    0x0814          0x2
+ .nbss.pxCurrentTCB
+                    0x0814          0x2 build/default/debug/Source/tasks.o
+                    0x0814                  _pxCurrentTCB
+
+.nbss.pxDelayedTaskList
+                    0x0816          0x2
+ .nbss.pxDelayedTaskList
+                    0x0816          0x2 build/default/debug/Source/tasks.o
+                    0x0816                  _pxDelayedTaskList
+
+.nbss.pxOverflowDelayedTaskList
+                    0x0818          0x2
+ .nbss.pxOverflowDelayedTaskList
+                    0x0818          0x2 build/default/debug/Source/tasks.o
+                    0x0818                  _pxOverflowDelayedTaskList
+
+.nbss.uxCurrentNumberOfTasks
+                    0x081a          0x2
+ .nbss.uxCurrentNumberOfTasks
+                    0x081a          0x2 build/default/debug/Source/tasks.o
+                    0x081a                  _uxCurrentNumberOfTasks
+
+.nbss.xTickCount
+                    0x081c          0x2
+ .nbss.xTickCount
+                    0x081c          0x2 build/default/debug/Source/tasks.o
+                    0x081c                  _xTickCount
+
+.nbss.uxTopReadyPriority
+                    0x081e          0x2
+ .nbss.uxTopReadyPriority
+                    0x081e          0x2 build/default/debug/Source/tasks.o
+                    0x081e                  _uxTopReadyPriority
+
+.nbss.xSchedulerRunning
+                    0x0820          0x2
+ .nbss.xSchedulerRunning
+                    0x0820          0x2 build/default/debug/Source/tasks.o
+                    0x0820                  _xSchedulerRunning
+
+.nbss.xPendedTicks
+                    0x0822          0x2
+ .nbss.xPendedTicks
+                    0x0822          0x2 build/default/debug/Source/tasks.o
+                    0x0822                  _xPendedTicks
+
+.nbss.xYieldPending
+                    0x0824          0x2
+ .nbss.xYieldPending
+                    0x0824          0x2 build/default/debug/Source/tasks.o
+                    0x0824                  _xYieldPending
+
+.nbss.xNumOfOverflows
+                    0x0826          0x2
+ .nbss.xNumOfOverflows
+                    0x0826          0x2 build/default/debug/Source/tasks.o
+                    0x0826                  _xNumOfOverflows
+
+.nbss.uxTaskNumber
+                    0x0828          0x2
+ .nbss.uxTaskNumber
+                    0x0828          0x2 build/default/debug/Source/tasks.o
+                    0x0828                  _uxTaskNumber
+
+.nbss.xNextTaskUnblockTime
+                    0x082a          0x2
+ .nbss.xNextTaskUnblockTime
+                    0x082a          0x2 build/default/debug/Source/tasks.o
+                    0x082a                  _xNextTaskUnblockTime
+
+.nbss.xIdleTaskHandle
+                    0x082c          0x2
+ .nbss.xIdleTaskHandle
+                    0x082c          0x2 build/default/debug/Source/tasks.o
+                    0x082c                  _xIdleTaskHandle
+
+.nbss.uxSchedulerSuspended
+                    0x082e          0x2
+ .nbss.uxSchedulerSuspended
+                    0x082e          0x2 build/default/debug/Source/tasks.o
+                    0x082e                  _uxSchedulerSuspended
+
+.nbss.pxCurrentTimerList
+                    0x0830          0x2
+ .nbss.pxCurrentTimerList
+                    0x0830          0x2 build/default/debug/Source/timers.o
+
+.nbss.pxOverflowTimerList
+                    0x0832          0x2
+ .nbss.pxOverflowTimerList
+                    0x0832          0x2 build/default/debug/Source/timers.o
+
+.nbss.xTimerQueue
+                    0x0834          0x2
+ .nbss.xTimerQueue
+                    0x0834          0x2 build/default/debug/Source/timers.o
+
+.nbss.xTimerTaskHandle
+                    0x0836          0x2
+ .nbss.xTimerTaskHandle
+                    0x0836          0x2 build/default/debug/Source/timers.o
+
+.nbss.xLastTime.13691
+                    0x0838          0x2
+ .nbss.xLastTime.13691
+                    0x0838          0x2 build/default/debug/Source/timers.o
 
 .nbss.xAdcTimer
                     0x083a          0x2
@@ -4189,17 +4189,17 @@ __c30_signature
                   0x002d74          0xe build/default/debug/Source/list.o
                   0x002d74                  _vListInitialiseItem
 
-.text.vTaskSuspendAll
-                  0x002d82          0xc
- .text.vTaskSuspendAll
-                  0x002d82          0xc build/default/debug/Source/tasks.o
-                  0x002d82                  _vTaskSuspendAll
-
 .text.xPortGetFreeHeapSize
-                  0x002d8e          0xc
+                  0x002d82          0xc
  .text.xPortGetFreeHeapSize
-                  0x002d8e          0xc build/default/debug/Source/portable/MemMang/heap_1.o
-                  0x002d8e                  _xPortGetFreeHeapSize
+                  0x002d82          0xc build/default/debug/Source/portable/MemMang/heap_1.o
+                  0x002d82                  _xPortGetFreeHeapSize
+
+.text.vTaskSuspendAll
+                  0x002d8e          0xc
+ .text.vTaskSuspendAll
+                  0x002d8e          0xc build/default/debug/Source/tasks.o
+                  0x002d8e                  _vTaskSuspendAll
 
 .text.vTaskMissedYield
                   0x002d9a          0xa
@@ -4211,35 +4211,35 @@ __c30_signature
  .text.main       0x002da4          0xa build/default/debug/main.o
                   0x002da4                  _main
 
-.text.uxTaskGetNumberOfTasks
-                  0x002dae          0x8
- .text.uxTaskGetNumberOfTasks
-                  0x002dae          0x8 build/default/debug/Source/tasks.o
-                  0x002dae                  _uxTaskGetNumberOfTasks
-
-.text.xTimerGetTimerDaemonTaskHandle
-                  0x002db6          0x8
- .text.xTimerGetTimerDaemonTaskHandle
-                  0x002db6          0x8 build/default/debug/Source/timers.o
-                  0x002db6                  _xTimerGetTimerDaemonTaskHandle
-
-.text.vApplicationIdleHook
-                  0x002dbe          0x8
- .text.vApplicationIdleHook
-                  0x002dbe          0x8 build/default/debug/main.o
-                  0x002dbe                  _vApplicationIdleHook
-
 .text.vPortFree
-                  0x002dc6          0x8
+                  0x002dae          0x8
  .text.vPortFree
-                  0x002dc6          0x8 build/default/debug/Source/portable/MemMang/heap_1.o
-                  0x002dc6                  _vPortFree
+                  0x002dae          0x8 build/default/debug/Source/portable/MemMang/heap_1.o
+                  0x002dae                  _vPortFree
 
 .text.vPortInitialiseBlocks
-                  0x002dce          0x8
+                  0x002db6          0x8
  .text.vPortInitialiseBlocks
-                  0x002dce          0x8 build/default/debug/Source/portable/MemMang/heap_1.o
-                  0x002dce                  _vPortInitialiseBlocks
+                  0x002db6          0x8 build/default/debug/Source/portable/MemMang/heap_1.o
+                  0x002db6                  _vPortInitialiseBlocks
+
+.text.uxTaskGetNumberOfTasks
+                  0x002dbe          0x8
+ .text.uxTaskGetNumberOfTasks
+                  0x002dbe          0x8 build/default/debug/Source/tasks.o
+                  0x002dbe                  _uxTaskGetNumberOfTasks
+
+.text.xTimerGetTimerDaemonTaskHandle
+                  0x002dc6          0x8
+ .text.xTimerGetTimerDaemonTaskHandle
+                  0x002dc6          0x8 build/default/debug/Source/timers.o
+                  0x002dc6                  _xTimerGetTimerDaemonTaskHandle
+
+.text.vApplicationIdleHook
+                  0x002dce          0x8
+ .text.vApplicationIdleHook
+                  0x002dce          0x8 build/default/debug/main.o
+                  0x002dce                  _vApplicationIdleHook
 
 .text.vPortEndScheduler
                   0x002dd6          0x6
